@@ -13,6 +13,10 @@ public class Publication {
 
     private String Title;
 
+    //private Long Id;
+
+    //public String getId() { return Long.toString(Id);}
+
     public String getTitle() {
         return Title;
     }
@@ -21,6 +25,10 @@ public class Publication {
         this.Title = title;
     }
 
+    //public void setId(String id) {
+    //    this.Id = Long.parseLong(id);
+    //}
+
     public CompletionStage<WSResponse> checkAuthorized() {
 
         WSClient ws = play.test.WSTestClient.newClient(9005);
@@ -28,6 +36,7 @@ public class Publication {
         WSRequest request = ws.url("http://localhost:9005/login");
         ObjectNode res = Json.newObject();
         res.put("Title", this.Title);
+        //res.put("Id", this.Id);
 
         return request.addHeader("Content-Type", "application/json")
                 .post(res)

@@ -47,8 +47,9 @@ public class HomeController extends Controller {
                         System.out.println(r.asJson());
                         // add Title to session
                         session("Title",publicationForm.get().getTitle());   // store Title in session for your project
+                        //session("Id", publicationForm.get().getId());
                         // redirect to index page, to display all categories
-                        return ok(views.html.response.render("The publication you are looking for:" + publicationForm.get().getTitle()));
+                        return ok(views.html.response.render("The publication you are looking for: " + publicationForm.get().getTitle()));
                     } else {
                         System.out.println("response null");
                         String authorizeMessage = "Invalid Publication Title";

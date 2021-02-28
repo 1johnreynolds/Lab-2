@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccedc1b1-c9f3-4b33-8019-4ffbf616e5f1" name="Default Changelist" comment="" />
+    <list default="true" id="ccedc1b1-c9f3-4b33-8019-4ffbf616e5f1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Publication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Publication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +37,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="1e04a183-631d-4da5-b8d2-7822e5b4d6fb" />
   <component name="MavenImportPreferences">
@@ -210,7 +216,7 @@
       <workItem from="1580952422879" duration="4158000" />
       <workItem from="1580981142789" duration="4181000" />
       <workItem from="1580996521542" duration="1713000" />
-      <workItem from="1614475227103" duration="6279000" />
+      <workItem from="1614475227103" duration="9959000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit Advance requirement 4,5">
       <created>1573100508310</created>
