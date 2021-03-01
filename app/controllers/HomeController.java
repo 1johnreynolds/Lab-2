@@ -41,19 +41,18 @@ public class HomeController extends Controller {
             return (CompletionStage<Result>) badRequest(views.html.query1.render(""));  // send parameter like register so that user could know
         }
 
-        return publicationForm.get().checkAuthorized()
-                .thenApplyAsync((WSResponse r) -> {
+        return publicationForm.get().checkAuthorized().thenApplyAsync((WSResponse r) -> {
                     if (r.getStatus() == 200 && r.asJson() != null && r.asJson().asBoolean()) {
                         System.out.println(r.asJson());
                         // add Title to session
                         session("Title",publicationForm.get().getTitle());   // store Title in session for your project
-                        //session("Id", publicationForm.get().getId());
+
                         // redirect to index page, to display all categories
-                        return ok(views.html.response.render("The publication you are looking for: " + publicationForm.get().getTitle()));
+                        return ok(views.html.response.render("The publication you are looking for: " + r.asJson() ));
                     } else {
                         System.out.println("response null");
                         String authorizeMessage = "Invalid Publication Title";
-                        return badRequest(views.html.query1.render(authorizeMessage));
+                        return badRequest(views.html.response.render(authorizeMessage));
                     }
                 }, ec.current());
     }
@@ -64,18 +63,6 @@ public class HomeController extends Controller {
     public Result querySelectionHandler() {
         return ok(views.html.querySelection.render());
     }
-
-    /**
-     * handle query
-     */
-//    public Result queryOneHandler() {
-//
-//        String title = request().getQueryString("title");
-//        if (title != "") {
-//            return ok(views.html.response.render(title));
-//        }
-//        return ok("failed");
-//    }
 
     /**
      * Query page
