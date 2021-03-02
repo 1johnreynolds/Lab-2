@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/c18jo/IdeaProjects/Lab-2-Pub/Frontend/conf/routes
-// @DATE:Sat Feb 27 19:09:44 MST 2021
+// @SOURCE:/Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/Front/Lab-2-frontend/conf/routes
+// @DATE:Mon Mar 01 22:49:12 CST 2021
 
 package router
 
@@ -47,7 +47,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query4""", """controllers.HomeController.query4()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query5""", """controllers.HomeController.query5()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """querySelection""", """controllers.HomeController.querySelectionHandler()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """response""", """controllers.HomeController.queryOneHandler()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query1Response""", """controllers.HomeController.queryOneHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -184,7 +184,7 @@ class Routes(
 
   // @LINE:21
   private[this] lazy val controllers_HomeController_queryOneHandler7_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("response")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("query1Response")))
   )
   private[this] lazy val controllers_HomeController_queryOneHandler7_invoker = createInvoker(
     HomeController_1.queryOneHandler(),
@@ -194,7 +194,7 @@ class Routes(
       "queryOneHandler",
       Nil,
       "GET",
-      this.prefix + """response""",
+      this.prefix + """query1Response""",
       """""",
       Seq()
     )

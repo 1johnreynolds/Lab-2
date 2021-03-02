@@ -55,7 +55,7 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                 <strong>Query 1</strong>
             </h1>
             <form action=""""),_display_(/*26.28*/routes/*26.34*/.HomeController.querySelectionHandler()),format.raw/*26.73*/("""" method="GET">
-                    <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Return to Query Selection</button>
+                    <button id="api-search-button1" class="btn col s4 offset-s4" type="submit">Return to Query Selection</button>
             </form>
         </header>
 
@@ -73,7 +73,14 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                             </div>
                         </div>
 
-                        <div class="row">
+                        """),_display_(/*45.26*/if(authorizeMessage!= null)/*45.53*/{_display_(Seq[Any](format.raw/*45.54*/("""
+                        """),format.raw/*46.25*/("""<div class="alert alert-primary" role="alert">
+                            """),_display_(/*47.30*/authorizeMessage),format.raw/*47.46*/("""
+                        """),format.raw/*48.25*/("""</div>
+                        <br>
+                        """)))}),format.raw/*50.26*/("""
+
+                        """),format.raw/*52.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
 
@@ -98,11 +105,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-02-28T09:44:17.738
-                  SOURCE: C:/Users/c18jo/IdeaProjects/Lab-2-Pub/Frontend/app/views/query1.scala.html
-                  HASH: 6a12e3abde8ab5791ef5195c33fa419025ba299a
-                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2935->1812|2950->1818|3004->1851
-                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34
+                  DATE: 2021-03-01T22:36:03.444
+                  SOURCE: /Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/Front/Lab-2-frontend/app/views/query1.scala.html
+                  HASH: 0a056a93366056a1cba491adc9bddfeee02b2a90
+                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2936->1813|2951->1819|3005->1852|3563->2383|3599->2410|3638->2411|3691->2436|3794->2512|3831->2528|3884->2553|3976->2614|4030->2640
+                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|76->45|76->45|76->45|77->46|78->47|78->47|79->48|81->50|83->52
                   -- GENERATED --
               */
           

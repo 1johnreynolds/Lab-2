@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/c18jo/IdeaProjects/Lab-2-Pub/Frontend/conf/routes
-// @DATE:Sat Feb 27 19:09:44 MST 2021
+// @SOURCE:/Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/Front/Lab-2-frontend/conf/routes
+// @DATE:Mon Mar 01 22:49:12 CST 2021
 
 import play.api.mvc.Call
 
@@ -65,7 +65,7 @@ package controllers {
     // @LINE:21
     def queryOneHandler(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "response")
+      Call("GET", _prefix + { _defaultPrefix } + "query1Response")
     }
   
   }

@@ -24,7 +24,7 @@
                 <strong>Query 1</strong>
             </h1>
             <form action="@routes.HomeController.querySelectionHandler()" method="GET">
-                    <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Return to Query Selection</button>
+                    <button id="api-search-button1" class="btn col s4 offset-s4" type="submit">Return to Query Selection</button>
             </form>
         </header>
 
@@ -41,6 +41,13 @@
                                 <label for="Title">Publication Title:</label>
                             </div>
                         </div>
+
+                        @if(authorizeMessage!= null){
+                        <div class="alert alert-primary" role="alert">
+                            @authorizeMessage
+                        </div>
+                        <br>
+                        }
 
                         <div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>

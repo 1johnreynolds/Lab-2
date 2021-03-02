@@ -115,8 +115,8 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-02-27T19:14:20.469
-                  SOURCE: C:/Users/c18jo/IdeaProjects/Lab-2-Pub/Frontend/app/views/querySelection.scala.html
+                  DATE: 2021-03-01T09:49:36.692
+                  SOURCE: /Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/Front/Lab-2-frontend/app/views/querySelection.scala.html
                   HASH: f3573397af1cdcd56ecce3a904392adcb29a387d
                   MATRIX: 1039->0|2647->1583|2662->1589|2707->1613|3197->2076|3212->2082|3257->2106|3620->2442|3635->2448|3680->2472|4055->2820|4070->2826|4115->2850|4465->3173|4480->3179|4525->3203
                   LINES: 33->1|61->29|61->29|61->29|71->39|71->39|71->39|79->47|79->47|79->47|87->55|87->55|87->55|95->63|95->63|95->63

@@ -107,8 +107,8 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-02-27T19:20:28.839
-                  SOURCE: C:/Users/c18jo/IdeaProjects/Lab-2-Pub/Frontend/app/views/query2.scala.html
+                  DATE: 2021-03-01T09:49:36.808
+                  SOURCE: /Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/Front/Lab-2-frontend/app/views/query2.scala.html
                   HASH: 261330da2aa7c4d5314d43932e1aa62267e24b8f
                   MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3000->1847
                   LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34
