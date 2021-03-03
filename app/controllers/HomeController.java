@@ -1,16 +1,23 @@
 package controllers;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.libs.concurrent.HttpExecutionContext;
 import play.libs.ws.WSResponse;
-import views.html.*;
+
+
 
 import javax.inject.Inject;
+import java.io.IOException;
 import java.util.concurrent.CompletionStage;
+
+import static play.mvc.WebSocket.Json;
 
 /**
  * Software Service Market Place
@@ -36,27 +43,58 @@ public class HomeController extends Controller {
 
 
     public CompletionStage<Result> queryOneHandler() {
-        Form<Publication> publicationForm = formFactory.form(Publication.class).bindFromRequest();
+        Form<pub_info> publicationForm = formFactory.form(pub_info.class).bindFromRequest();
         if (publicationForm.hasErrors()){
             return (CompletionStage<Result>) badRequest(views.html.query1.render("publication form has errors"));  // send parameter like register so that user could know
         }
 
         return publicationForm.get().checkAuthorized().thenApplyAsync((WSResponse r) -> {
-                    if (r.getStatus() == 200 && r.asJson() != null && !r.getBody().equals("null")) {
-                        JsonNode res = r.asJson();
-                        // add Title to session
-                        session("Title",publicationForm.get().getTitle());   // store Title in session for your project
-                        //session("Id", publicationForm.get().getId());
-                        // redirect to index page, to display all categories
-                        return ok(views.html.query1.render("The publication you are looking for: " +"PID: "+res.get("pid").asText()+
-                                " Title: " +res.get("Title").asText() +
-                                " Metadata: "+ res.get("Metadata").asText()));
-                    } else {
-                        System.out.println("response null");
-                        String authorizeMessage = "Invalid Publication Title";
-                        return badRequest(views.html.query1.render(authorizeMessage));
-                    }
-                }, ec.current());
+            if (r.getStatus() == 200 && r.asJson() != null && !r.getBody().equals("null")) {
+                JsonNode res = r.asJson();
+                System.out.println(res);
+                System.out.println(res.getNodeType());
+                System.out.println(res.size());
+                // add Title to session
+                session("Title", publicationForm.get().getTitle());   // store Title in session for your project
+                // session("Id", publicationForm.get().getId());
+                // redirect to index page, to display all categories
+
+                String query1 = "";
+                for (int i = 0; i < res.size(); i++) {
+                    //JsonObject jsonObject = new JsonParser().parse(res.get(Integer.toString(i)).toString()).getAsJsonObject();
+                    System.out.println(res.get(i));
+                    JsonNode row = res.get(i);
+                    System.out.println(row.findValue("pid").asText());
+                    query1 += "The publication you are looking for: \n" +
+                            "PID: " + row.findValue("pid") + "\n" +
+                            "Title: " + row.findValue("title") + "\n" +
+                            "mdate: " + row.findValue("mdate") + "\n" +
+                            "author: " + row.findValue("author") + "\n" +
+                            "author list: " + row.findValue("author_list") + "\n" +
+                            "article key: " + row.findValue("article_key") + "\n" +
+                            "editor: " + row.findValue("editor") + "\n" +
+                            "pages: " + row.findValue("pages") + "\n" +
+                            "ee: " + row.findValue("ee") + "\n" +
+                            "pub_url: " + row.findValue("pub_url") + "\n" +
+                            "journal: " + row.findValue("journal") + "\n" +
+                            "book title: " + row.findValue("book_title") + "\n" +
+                            "volume: " + row.findValue("volume") + "\n" +
+                            "pub_number: " + row.findValue("pub_number") + "\n" +
+                            "publisher: " + row.findValue("publisher") + "\n" +
+                            "ISBN: " + row.findValue("isbn") + "\n" +
+                            "series: " + row.findValue("series") + "\n" +
+                            "cross_ref: " + row.findValue("cross_ref") + "\n";
+                    System.out.println(query1);
+                }
+                return ok(views.html.query1.render(query1));
+
+
+            } else {
+                System.out.println("response null");
+                String authorizeMessage = "Invalid pub_info Title";
+                return badRequest(views.html.query1.render(authorizeMessage));
+            }
+        }, ec.current());
     }
 
     /**
