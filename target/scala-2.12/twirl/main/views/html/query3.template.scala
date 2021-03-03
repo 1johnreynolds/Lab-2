@@ -62,18 +62,31 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
         <div class="row">
             <div class="card col s4 offset-s4 ">
                 <div class="card-panel">
-                    <form action=""""),_display_(/*34.36*/routes/*34.42*/.HomeController.queryOneHandler()),format.raw/*34.75*/("""" method="GET">
+                    <form action=""""),_display_(/*34.36*/routes/*34.42*/.HomeController.queryThreeHandler()),format.raw/*34.77*/("""" method="GET">
                         <h6> <b>Query 3</b>
-                            <br>Display the titles of the articles published by a researcher in a specific year.</h6>
+                            <br>Display the titles of the articles published by a researcher in a specific year.
+                        </h6>
                         <div class="row">
                             <div class="input-field col s12">
-
-                                <input id="year" name="year" type="text" class="validate">
-                                <label for="year">Year:</label>
+                                <input id="author" name="author" type="text" class="validate">
+                                <label for="author">Researcher name:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="pub_year" name="pub_year" type="text" class="validate">
+                                <label for="pub_year">Year:</label>
                             </div>
                         </div>
 
-                        <div class="row">
+                        """),_display_(/*51.26*/if(authorizeMessage!= null)/*51.53*/{_display_(Seq[Any](format.raw/*51.54*/("""
+                            """),format.raw/*52.29*/("""<div class="alert alert-primary" role="alert">
+                            """),_display_(/*53.30*/authorizeMessage),format.raw/*53.46*/("""
+                            """),format.raw/*54.29*/("""</div>
+                            <br>
+                        """)))}),format.raw/*56.26*/("""
+
+                        """),format.raw/*58.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
 
@@ -98,11 +111,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-02T09:53:24.785
+                  DATE: 2021-03-03T05:15:23.573
                   SOURCE: /Users/huasucaster/Desktop/CS Master/CS7340/Lab2/Lab-2-frontend/app/views/query3.scala.html
-                  HASH: 31328b31362a9c7d1988c1a826da047ce77030fa
-                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3000->1847
-                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34
+                  HASH: d73b974404d579ca8774519b4c9087cd97e86cad
+                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3002->1849|3937->2757|3973->2784|4012->2785|4069->2814|4172->2890|4209->2906|4266->2935|4362->3000|4416->3026
+                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|82->51|82->51|82->51|83->52|84->53|84->53|85->54|87->56|89->58
                   -- GENERATED --
               */
           

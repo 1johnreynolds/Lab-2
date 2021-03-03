@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/huasucaster/Desktop/CS Master/CS7340/Lab2/Lab-2-frontend/conf/routes
-// @DATE:Tue Mar 02 09:53:24 CST 2021
+// @DATE:Wed Mar 03 04:37:12 CST 2021
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -18,6 +18,26 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:27
+    def queryFourHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.queryFourHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query4Response"})
+        }
+      """
+    )
+  
+    // @LINE:23
+    def queryTwoHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.queryTwoHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query2Response"})
+        }
+      """
+    )
   
     // @LINE:17
     def query5: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -93,9 +113,19 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:25
+    def queryThreeHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.queryThreeHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query3Response"})
+        }
+      """
+    )
+  
   }
 
-  // @LINE:24
+  // @LINE:30
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -103,7 +133,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:24
+    // @LINE:30
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """

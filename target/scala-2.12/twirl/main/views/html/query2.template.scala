@@ -62,7 +62,7 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
         <div class="row">
             <div class="card col s4 offset-s4 ">
                 <div class="card-panel">
-                    <form action=""""),_display_(/*34.36*/routes/*34.42*/.HomeController.queryOneHandler()),format.raw/*34.75*/("""" method="GET">
+                    <form action=""""),_display_(/*34.36*/routes/*34.42*/.HomeController.queryTwoHandler()),format.raw/*34.75*/("""" method="GET">
                         <h6><b>Query 2:</b>
                             <br>Given a journal name and a year (volume) and an issue (number),
                             find out the metadata of all the papers published in the book
@@ -77,12 +77,18 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                                 <label for="volume">Year (Volume):</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="issue" name="issue" type="text" class="validate">
-                                <label for="issue">Issue (Number):</label>
+                                <input id="pub_number" name="pub_number" type="text" class="validate">
+                                <label for="pub_number">Issue (Number):</label>
                             </div>
                         </div>
+                        """),_display_(/*53.26*/if(authorizeMessage!= null)/*53.53*/{_display_(Seq[Any](format.raw/*53.54*/("""
+                            """),format.raw/*54.29*/("""<div class="alert alert-primary" role="alert">
+                            """),_display_(/*55.30*/authorizeMessage),format.raw/*55.46*/("""
+                            """),format.raw/*56.29*/("""</div>
+                            <br>
+                        """)))}),format.raw/*58.26*/("""
 
-                        <div class="row">
+                        """),format.raw/*60.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
 
@@ -107,11 +113,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-02T09:53:24.799
+                  DATE: 2021-03-03T05:26:53.807
                   SOURCE: /Users/huasucaster/Desktop/CS Master/CS7340/Lab2/Lab-2-frontend/app/views/query2.scala.html
-                  HASH: 261330da2aa7c4d5314d43932e1aa62267e24b8f
-                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3000->1847
-                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34
+                  HASH: beb87ab628a461e34c297c75271f73fe58061f87
+                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3000->1847|4262->3082|4298->3109|4337->3110|4394->3139|4497->3215|4534->3231|4591->3260|4687->3325|4741->3351
+                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|84->53|84->53|84->53|85->54|86->55|86->55|87->56|89->58|91->60
                   -- GENERATED --
               */
           

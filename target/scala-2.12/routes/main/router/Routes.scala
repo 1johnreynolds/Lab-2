@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/huasucaster/Desktop/CS Master/CS7340/Lab2/Lab-2-frontend/conf/routes
-// @DATE:Tue Mar 02 09:53:24 CST 2021
+// @DATE:Wed Mar 03 04:37:12 CST 2021
 
 package router
 
@@ -16,7 +16,7 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:7
   HomeController_1: controllers.HomeController,
-  // @LINE:24
+  // @LINE:30
   Assets_0: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -25,7 +25,7 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:7
     HomeController_1: controllers.HomeController,
-    // @LINE:24
+    // @LINE:30
     Assets_0: controllers.Assets
   ) = this(errorHandler, HomeController_1, Assets_0, "/")
 
@@ -48,6 +48,9 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query5""", """controllers.HomeController.query5()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """querySelection""", """controllers.HomeController.querySelectionHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query1Response""", """controllers.HomeController.queryOneHandler()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query2Response""", """controllers.HomeController.queryTwoHandler()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query3Response""", """controllers.HomeController.queryThreeHandler()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query4Response""", """controllers.HomeController.queryFourHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -200,11 +203,65 @@ class Routes(
     )
   )
 
-  // @LINE:24
-  private[this] lazy val controllers_Assets_at8_route = Route("GET",
+  // @LINE:23
+  private[this] lazy val controllers_HomeController_queryTwoHandler8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("query2Response")))
+  )
+  private[this] lazy val controllers_HomeController_queryTwoHandler8_invoker = createInvoker(
+    HomeController_1.queryTwoHandler(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "queryTwoHandler",
+      Nil,
+      "GET",
+      this.prefix + """query2Response""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:25
+  private[this] lazy val controllers_HomeController_queryThreeHandler9_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("query3Response")))
+  )
+  private[this] lazy val controllers_HomeController_queryThreeHandler9_invoker = createInvoker(
+    HomeController_1.queryThreeHandler(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "queryThreeHandler",
+      Nil,
+      "GET",
+      this.prefix + """query3Response""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:27
+  private[this] lazy val controllers_HomeController_queryFourHandler10_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("query4Response")))
+  )
+  private[this] lazy val controllers_HomeController_queryFourHandler10_invoker = createInvoker(
+    HomeController_1.queryFourHandler(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "queryFourHandler",
+      Nil,
+      "GET",
+      this.prefix + """query4Response""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:30
+  private[this] lazy val controllers_Assets_at11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at8_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at11_invoker = createInvoker(
     Assets_0.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -269,10 +326,28 @@ class Routes(
         controllers_HomeController_queryOneHandler7_invoker.call(HomeController_1.queryOneHandler())
       }
   
-    // @LINE:24
-    case controllers_Assets_at8_route(params@_) =>
+    // @LINE:23
+    case controllers_HomeController_queryTwoHandler8_route(params@_) =>
+      call { 
+        controllers_HomeController_queryTwoHandler8_invoker.call(HomeController_1.queryTwoHandler())
+      }
+  
+    // @LINE:25
+    case controllers_HomeController_queryThreeHandler9_route(params@_) =>
+      call { 
+        controllers_HomeController_queryThreeHandler9_invoker.call(HomeController_1.queryThreeHandler())
+      }
+  
+    // @LINE:27
+    case controllers_HomeController_queryFourHandler10_route(params@_) =>
+      call { 
+        controllers_HomeController_queryFourHandler10_invoker.call(HomeController_1.queryFourHandler())
+      }
+  
+    // @LINE:30
+    case controllers_Assets_at11_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at8_invoker.call(Assets_0.at(path, file))
+        controllers_Assets_at11_invoker.call(Assets_0.at(path, file))
       }
   }
 }

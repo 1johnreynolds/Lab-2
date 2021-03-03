@@ -8,8 +8,7 @@ import play.libs.ws.WSResponse;
 
 import java.util.concurrent.CompletionStage;
 
-
-public class pub_info {
+public class pubClient1_4 {
     private Long pid;
     private String Title;
     public String mdate;
@@ -191,7 +190,7 @@ public class pub_info {
 
         WSClient ws = play.test.WSTestClient.newClient(9005);
         //add Title
-        WSRequest request = ws.url("http://localhost:9005/query1Response");
+        WSRequest request = ws.url("http://localhost:9005/query4Response");
         ObjectNode res = Json.newObject();
         res.put("Title", this.Title);
         //res.put("Id", this.Id);
@@ -202,6 +201,5 @@ public class pub_info {
                     return r;
                 });
     }
-
 
 }

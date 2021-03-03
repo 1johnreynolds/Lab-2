@@ -69,7 +69,7 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                             <div class="input-field col s12">
 
                                 <input id="Title" name="Title" type="text" class="validate">
-                                <label for="Title">pub_info Title:</label>
+                                <label for="Title">Publication Title:</label>
                             </div>
                         </div>
 
@@ -105,10 +105,10 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-02T12:22:47.249
+                  DATE: 2021-03-03T02:49:51.448
                   SOURCE: /Users/huasucaster/Desktop/CS Master/CS7340/Lab2/Lab-2-frontend/app/views/query1.scala.html
-                  HASH: a7683349a60c9dcad774621babd6ffa97a61c817
-                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2936->1813|2951->1819|3005->1852|3560->2380|3596->2407|3635->2408|3688->2433|3791->2509|3828->2525|3881->2550|3973->2611|4027->2637
+                  HASH: 0a056a93366056a1cba491adc9bddfeee02b2a90
+                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2936->1813|2951->1819|3005->1852|3563->2383|3599->2410|3638->2411|3691->2436|3794->2512|3831->2528|3884->2553|3976->2614|4030->2640
                   LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|76->45|76->45|76->45|77->46|78->47|78->47|79->48|81->50|83->52
                   -- GENERATED --
               */

@@ -31,10 +31,18 @@
         <div class="row">
             <div class="card col s4 offset-s4 ">
                 <div class="card-panel">
-                    <form action="@routes.HomeController.queryOneHandler()" method="GET">
+                    <form action="@routes.HomeController.queryFourHandler()" method="GET">
                         <h6> <b>Query 4:</b>
                             <br>Display all the authors who have published more than 10 papers in the area of SOSE to date.
                         </h6>
+
+                        @if(authorizeMessage!= null){
+                            <div class="alert alert-primary" role="alert">
+                                @authorizeMessage
+                            </div>
+                            <br>
+                        }
+
                         <div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>

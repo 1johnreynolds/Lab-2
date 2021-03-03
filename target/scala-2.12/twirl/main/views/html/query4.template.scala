@@ -62,11 +62,19 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
         <div class="row">
             <div class="card col s4 offset-s4 ">
                 <div class="card-panel">
-                    <form action=""""),_display_(/*34.36*/routes/*34.42*/.HomeController.queryOneHandler()),format.raw/*34.75*/("""" method="GET">
+                    <form action=""""),_display_(/*34.36*/routes/*34.42*/.HomeController.queryFourHandler()),format.raw/*34.76*/("""" method="GET">
                         <h6> <b>Query 4:</b>
                             <br>Display all the authors who have published more than 10 papers in the area of SOSE to date.
                         </h6>
-                        <div class="row">
+
+                        """),_display_(/*39.26*/if(authorizeMessage!= null)/*39.53*/{_display_(Seq[Any](format.raw/*39.54*/("""
+                            """),format.raw/*40.29*/("""<div class="alert alert-primary" role="alert">
+                                """),_display_(/*41.34*/authorizeMessage),format.raw/*41.50*/("""
+                            """),format.raw/*42.29*/("""</div>
+                            <br>
+                        """)))}),format.raw/*44.26*/("""
+
+                        """),format.raw/*46.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
 
@@ -91,11 +99,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-02T09:53:24.762
+                  DATE: 2021-03-03T02:58:21.137
                   SOURCE: /Users/huasucaster/Desktop/CS Master/CS7340/Lab2/Lab-2-frontend/app/views/query4.scala.html
-                  HASH: 7d613d11b77caf850c3ab296559851f69042947c
-                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3000->1847
-                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34
+                  HASH: 3092255730d486c79dd4fe3cfb2d6dbf8efa2a38
+                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3001->1848|3269->2089|3305->2116|3344->2117|3401->2146|3508->2226|3545->2242|3602->2271|3698->2336|3752->2362
+                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|70->39|70->39|70->39|71->40|72->41|72->41|73->42|75->44|77->46
                   -- GENERATED --
               */
           

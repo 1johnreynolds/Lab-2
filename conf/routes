@@ -20,5 +20,11 @@ GET     /querySelection            controllers.HomeController.querySelectionHand
 
 GET     /query1Response                  controllers.HomeController.queryOneHandler()
 
+GET     /query2Response                  controllers.HomeController.queryTwoHandler()
+
+GET     /query3Response                  controllers.HomeController.queryThreeHandler()
+
+GET     /query4Response                  controllers.HomeController.queryFourHandler()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file           controllers.Assets.at(path="/public", file)

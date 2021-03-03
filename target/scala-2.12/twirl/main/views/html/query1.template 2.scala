@@ -69,7 +69,7 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                             <div class="input-field col s12">
 
                                 <input id="Title" name="Title" type="text" class="validate">
-                                <label for="Title">pub_info Title:</label>
+                                <label for="Title">pubClient1_1 Title:</label>
                             </div>
                         </div>
 

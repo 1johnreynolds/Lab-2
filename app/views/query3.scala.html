@@ -31,16 +31,29 @@
         <div class="row">
             <div class="card col s4 offset-s4 ">
                 <div class="card-panel">
-                    <form action="@routes.HomeController.queryOneHandler()" method="GET">
+                    <form action="@routes.HomeController.queryThreeHandler()" method="GET">
                         <h6> <b>Query 3</b>
-                            <br>Display the titles of the articles published by a researcher in a specific year.</h6>
+                            <br>Display the titles of the articles published by a researcher in a specific year.
+                        </h6>
                         <div class="row">
                             <div class="input-field col s12">
-
-                                <input id="year" name="year" type="text" class="validate">
-                                <label for="year">Year:</label>
+                                <input id="author" name="author" type="text" class="validate">
+                                <label for="author">Researcher name:</label>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="pub_year" name="pub_year" type="text" class="validate">
+                                <label for="pub_year">Year:</label>
+                            </div>
+                        </div>
+
+                        @if(authorizeMessage!= null){
+                            <div class="alert alert-primary" role="alert">
+                            @authorizeMessage
+                            </div>
+                            <br>
+                        }
 
                         <div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
