@@ -81,14 +81,15 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                                 <label for="pub_number">Issue (Number):</label>
                             </div>
                         </div>
-                        """),_display_(/*53.26*/if(authorizeMessage!= null)/*53.53*/{_display_(Seq[Any](format.raw/*53.54*/("""
-                            """),format.raw/*54.29*/("""<div class="alert alert-primary" role="alert">
-                            """),_display_(/*55.30*/authorizeMessage),format.raw/*55.46*/("""
-                            """),format.raw/*56.29*/("""</div>
-                            <br>
-                        """)))}),format.raw/*58.26*/("""
 
-                        """),format.raw/*60.25*/("""<div class="row">
+                        """),_display_(/*54.26*/if(authorizeMessage!= null)/*54.53*/{_display_(Seq[Any](format.raw/*54.54*/("""
+                            """),format.raw/*55.29*/("""<div class="alert alert-primary" role="alert">
+                            """),_display_(/*56.30*/authorizeMessage),format.raw/*56.46*/("""
+                            """),format.raw/*57.29*/("""</div>
+                            <br>
+                        """)))}),format.raw/*59.26*/("""
+
+                        """),format.raw/*61.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
 
@@ -113,11 +114,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-03T05:26:53.807
+                  DATE: 2021-03-03T13:48:30.319
                   SOURCE: /Users/huasucaster/Desktop/CS Master/CS7340/Lab2/Lab-2-frontend/app/views/query2.scala.html
-                  HASH: beb87ab628a461e34c297c75271f73fe58061f87
-                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3000->1847|4262->3082|4298->3109|4337->3110|4394->3139|4497->3215|4534->3231|4591->3260|4687->3325|4741->3351
-                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|84->53|84->53|84->53|85->54|86->55|86->55|87->56|89->58|91->60
+                  HASH: d9b67d7f962cf404ea842f310e3e286cf116d30d
+                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3000->1847|4263->3083|4299->3110|4338->3111|4395->3140|4498->3216|4535->3232|4592->3261|4688->3326|4742->3352
+                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|85->54|85->54|85->54|86->55|87->56|87->56|88->57|90->59|92->61
                   -- GENERATED --
               */
           

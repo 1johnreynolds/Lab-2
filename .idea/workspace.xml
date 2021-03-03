@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d27581ce-4015-46fa-92c8-5c943b13a94f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/controllers/pubClient1_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/pubClient1_3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/pubClient1_4.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/pub_info.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/pubClient1_1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/query1.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/query1.scala.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/query2.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/query2.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/query3.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/query3.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/query4.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/query4.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/ReverseRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/ReverseRoutes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/routes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/Routes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/Routes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/RoutesPrefix.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/RoutesPrefix.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/query1.template 2.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/query1.template 2.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/query1.template.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/query1.template.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/query2.template.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/query2.template.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/query3.template.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/query3.template.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/query4.template.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/query4.template.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +162,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614700332388</updated>
       <workItem from="1614700333960" duration="15573000" />
-      <workItem from="1614730501718" duration="27353000" />
+      <workItem from="1614730501718" duration="30127000" />
     </task>
     <servers />
   </component>
@@ -198,25 +182,25 @@
       <screen x="-39" y="-1080" width="1920" height="1080" />
     </state>
     <state x="690" y="-920" key="#com.intellij.ide.util.MemberChooser/-39.-1080.1920.1080/0.0.1536.960@-39.-1080.1920.1080" timestamp="1614709187777" />
-    <state width="1868" height="189" key="GridCell.Tab.0.bottom" timestamp="1614770845859">
+    <state width="1868" height="189" key="GridCell.Tab.0.bottom" timestamp="1614800999293">
       <screen x="-39" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1868" height="189" key="GridCell.Tab.0.bottom/-39.-1080.1920.1080/0.0.1536.960@-39.-1080.1920.1080" timestamp="1614770845859" />
+    <state width="1868" height="189" key="GridCell.Tab.0.bottom/-39.-1080.1920.1080/0.0.1536.960@-39.-1080.1920.1080" timestamp="1614800999293" />
     <state width="1868" height="189" key="GridCell.Tab.0.bottom/-39.-1080.1920.1080/0.25.1536.935@-39.-1080.1920.1080" timestamp="1614748341114" />
-    <state width="1868" height="189" key="GridCell.Tab.0.center" timestamp="1614770845857">
+    <state width="1868" height="189" key="GridCell.Tab.0.center" timestamp="1614800999291">
       <screen x="-39" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1868" height="189" key="GridCell.Tab.0.center/-39.-1080.1920.1080/0.0.1536.960@-39.-1080.1920.1080" timestamp="1614770845857" />
+    <state width="1868" height="189" key="GridCell.Tab.0.center/-39.-1080.1920.1080/0.0.1536.960@-39.-1080.1920.1080" timestamp="1614800999291" />
     <state width="1868" height="189" key="GridCell.Tab.0.center/-39.-1080.1920.1080/0.25.1536.935@-39.-1080.1920.1080" timestamp="1614748341113" />
-    <state width="1868" height="189" key="GridCell.Tab.0.left" timestamp="1614770845856">
+    <state width="1868" height="189" key="GridCell.Tab.0.left" timestamp="1614800999290">
       <screen x="-39" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1868" height="189" key="GridCell.Tab.0.left/-39.-1080.1920.1080/0.0.1536.960@-39.-1080.1920.1080" timestamp="1614770845856" />
+    <state width="1868" height="189" key="GridCell.Tab.0.left/-39.-1080.1920.1080/0.0.1536.960@-39.-1080.1920.1080" timestamp="1614800999290" />
     <state width="1868" height="189" key="GridCell.Tab.0.left/-39.-1080.1920.1080/0.25.1536.935@-39.-1080.1920.1080" timestamp="1614748341112" />
-    <state width="1868" height="189" key="GridCell.Tab.0.right" timestamp="1614770845858">
+    <state width="1868" height="189" key="GridCell.Tab.0.right" timestamp="1614800999292">
       <screen x="-39" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1868" height="189" key="GridCell.Tab.0.right/-39.-1080.1920.1080/0.0.1536.960@-39.-1080.1920.1080" timestamp="1614770845858" />
+    <state width="1868" height="189" key="GridCell.Tab.0.right/-39.-1080.1920.1080/0.0.1536.960@-39.-1080.1920.1080" timestamp="1614800999292" />
     <state width="1868" height="189" key="GridCell.Tab.0.right/-39.-1080.1920.1080/0.25.1536.935@-39.-1080.1920.1080" timestamp="1614748341114" />
     <state width="1868" height="361" key="GridCell.Tab.1.bottom" timestamp="1614724764286">
       <screen x="-39" y="-1080" width="1920" height="1080" />
