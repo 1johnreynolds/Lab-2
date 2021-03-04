@@ -187,8 +187,7 @@ public class pubClient1_1 {
     //    this.Id = Long.parseLong(id);
     //}
 
-    public CompletionStage<WSResponse> checkAuthorized() {
-
+    public CompletionStage<WSResponse> checkAuthorizedQ1() {
         WSClient ws = play.test.WSTestClient.newClient(9005);
         //add Title
         WSRequest request = ws.url("http://localhost:9005/query1Response");
@@ -203,5 +202,56 @@ public class pubClient1_1 {
                 });
     }
 
+    public CompletionStage<WSResponse> checkAuthorizedQ2() {
 
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        //add Title
+        WSRequest request = ws.url("http://localhost:9005/query2Response");
+        ObjectNode res = Json.newObject();
+        res.put("journal", this.journal);
+        res.put("volume", this.volume);
+        res.put("pub_number", this.pub_number);
+        System.out.println(res);
+        //res.put("Id", this.Id);
+
+        return request.addHeader("Content-Type", "application/json")
+                .post(res)
+                .thenApply((WSResponse r) -> {
+                    return r;
+                });
+    }
+
+    public CompletionStage<WSResponse> checkAuthorizedQ3() {
+
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        //add Title
+        WSRequest request = ws.url("http://localhost:9005/query3Response");
+        ObjectNode res = Json.newObject();
+        res.put("author", this.author);
+        res.put("pub_year", this.pub_year);
+        System.out.println(res);
+        //res.put("Id", this.Id);
+
+        return request.addHeader("Content-Type", "application/json")
+                .post(res)
+                .thenApply((WSResponse r) -> {
+                    return r;
+                });
+    }
+
+    public CompletionStage<WSResponse> checkAuthorizedQ4() {
+
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        //add Title
+        WSRequest request = ws.url("http://localhost:9005/query4Response");
+        ObjectNode res = Json.newObject();
+        res.put("Title", this.title);
+        //res.put("Id", this.Id);
+
+        return request.addHeader("Content-Type", "application/json")
+                .post(res)
+                .thenApply((WSResponse r) -> {
+                    return r;
+                });
+    }
 }

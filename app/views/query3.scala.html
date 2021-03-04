@@ -1,4 +1,4 @@
-@(authorizeMessage: String)
+@(q3Metadata:List[List[String]])
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,13 +48,6 @@
                             </div>
                         </div>
 
-                        @if(authorizeMessage!= null){
-                            <div class="alert alert-primary" role="alert">
-                            @authorizeMessage
-                            </div>
-                            <br>
-                        }
-
                         <div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
@@ -62,6 +55,19 @@
                     </form>
                 </div>
             </div>
+
+            <table border="1">
+                <tr>
+                    <th>Title</th>
+                </tr>
+                @for(paperMetadata <- q3Metadata){
+                <tr>
+                    @for(curpaper <- paperMetadata){
+                    <td>@curpaper</td>
+                    }
+                </tr>
+                }
+            </table>
         </div>
     </body>
 </html>

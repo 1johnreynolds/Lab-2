@@ -22,81 +22,108 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object query1 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object query1 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[List[String]],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(authorizeMessage: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(q1Metadata:List[List[String]]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
 Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Query 1</title>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Query 1</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-            <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
-    </head>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin=""></script>
+</head>
 
-    <body>
+<body>
 
-        <header class="topbar">
-            <h1 class="focused" style="font-size: 37px;
+<header class="topbar">
+    <h1 class="focused" style="font-size: 37px;
                 color: #57a957">
-                <strong>Query 1</strong>
-            </h1>
-            <form action=""""),_display_(/*26.28*/routes/*26.34*/.HomeController.querySelectionHandler()),format.raw/*26.73*/("""" method="GET">
-                    <button id="api-search-button1" class="btn col s4 offset-s4" type="submit">Return to Query Selection</button>
-            </form>
-        </header>
+        <strong>Query 1</strong>
+    </h1>
+    <form action=""""),_display_(/*32.20*/routes/*32.26*/.HomeController.querySelectionHandler()),format.raw/*32.65*/("""" method="GET">
+        <button id="api-search-button1" class="btn col s4 offset-s4" type="submit">Return to Query Selection</button>
+    </form>
+</header>
 
-        <div class="row">
-            <div class="card col s4 offset-s4 ">
-                <div class="card-panel">
-                    <form action=""""),_display_(/*34.36*/routes/*34.42*/.HomeController.queryOneHandler()),format.raw/*34.75*/("""" method="GET">
-                        <h6> <b>Query 1:</b>
-                            <br>Given a paper name (i.e., title), list its publication metadata.</h6>
-                        <div class="row">
-                            <div class="input-field col s12">
+<div class="row">
+    <div class="card col s4 offset-s4 ">
+        <div class="card-panel">
+            <form action=""""),_display_(/*40.28*/routes/*40.34*/.HomeController.queryOneHandler()),format.raw/*40.67*/("""" method="GET">
+                <h6><b>Query 1:</b>
+                    <br>Given a paper name (i.e., title), list its publication metadata.</h6>
+                <div class="row">
+                    <div class="input-field col s12">
 
-                                <input id="title" name="title" type="text" class="validate">
-                                <label for="title">Publication Title:</label>
-                            </div>
-                        </div>
-
-                        """),_display_(/*45.26*/if(authorizeMessage!= null)/*45.53*/{_display_(Seq[Any](format.raw/*45.54*/("""
-                        """),format.raw/*46.25*/("""<div class="alert alert-primary" role="alert">
-                            """),_display_(/*47.30*/authorizeMessage),format.raw/*47.46*/("""
-                        """),format.raw/*48.25*/("""</div>
-                        <br>
-                        """)))}),format.raw/*50.26*/("""
-
-                        """),format.raw/*52.25*/("""<div class="row">
-                            <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
-                        </div>
-
-                    </form>
+                        <input id="title" name="title" type="text" class="validate">
+                        <label for="title">Publication Title:</label>
+                    </div>
                 </div>
-            </div>
+
+                <div class="row">
+                    <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
+                </div>
+
+            </form>
         </div>
-    </body>
+    </div>
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Mdate</th>
+            <th>Author List</th>
+            <th>Article Key</th>
+            <th>Editors</th>
+            <th>Pages</th>
+            <th>EE</th>
+            <th>Pub_url</th>
+            <th>Pub_year</th>
+            <th>Journal</th>
+            <th>Book_title(Conference Name)</th>
+            <th>Volume</th>
+            <th>Pub_number</th>
+            <th>Publisher</th>
+            <th>ISBN</th>
+            <th>Series</th>
+            <th>Cross_ref</th>
+        </tr>
+        """),_display_(/*78.10*/for(paperMetadata <- q1Metadata) yield /*78.42*/{_display_(Seq[Any](format.raw/*78.43*/("""
+        """),format.raw/*79.9*/("""<tr>
+            """),_display_(/*80.14*/for(curpaper <- paperMetadata) yield /*80.44*/{_display_(Seq[Any](format.raw/*80.45*/("""
+            """),format.raw/*81.13*/("""<td>"""),_display_(/*81.18*/curpaper),format.raw/*81.26*/("""</td>
+            """)))}),format.raw/*82.14*/("""
+        """),format.raw/*83.9*/("""</tr>
+        """)))}),format.raw/*84.10*/("""
+    """),format.raw/*85.5*/("""</table>
+</div>
+</body>
 </html>"""))
       }
     }
   }
 
-  def render(authorizeMessage:String): play.twirl.api.HtmlFormat.Appendable = apply(authorizeMessage)
+  def render(q1Metadata:List[List[String]]): play.twirl.api.HtmlFormat.Appendable = apply(q1Metadata)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (authorizeMessage) => apply(authorizeMessage)
+  def f:((List[List[String]]) => play.twirl.api.HtmlFormat.Appendable) = (q1Metadata) => apply(q1Metadata)
 
   def ref: this.type = this
 
@@ -105,11 +132,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-03T13:50:07.560
-                  SOURCE: /Users/huasucaster/Desktop/CS Master/CS7340/Lab2/Lab-2-frontend/app/views/query1.scala.html
-                  HASH: 68ae6ecc902207a27cb153bc54c350fdfa7c3c8f
-                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2936->1813|2951->1819|3005->1852|3563->2383|3599->2410|3638->2411|3691->2436|3794->2512|3831->2528|3884->2553|3976->2614|4030->2640
-                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|76->45|76->45|76->45|77->46|78->47|78->47|79->48|81->50|83->52
+                  DATE: 2021-03-03T22:30:10.717
+                  SOURCE: /Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/frontend/Lab-2-frontend/app/views/query1.scala.html
+                  HASH: 0f25142376439d5542d5a6306e9e02859631c801
+                  MATRIX: 961->1|1086->33|2486->1408|2501->1414|2561->1453|2864->1729|2879->1735|2933->1768|4187->2995|4235->3027|4274->3028|4310->3037|4355->3055|4401->3085|4440->3086|4481->3099|4513->3104|4542->3112|4592->3131|4628->3140|4674->3155|4706->3160
+                  LINES: 28->1|33->2|63->32|63->32|63->32|71->40|71->40|71->40|109->78|109->78|109->78|110->79|111->80|111->80|111->80|112->81|112->81|112->81|113->82|114->83|115->84|116->85
                   -- GENERATED --
               */
           

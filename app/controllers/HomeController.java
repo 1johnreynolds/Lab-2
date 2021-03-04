@@ -7,10 +7,13 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.libs.concurrent.HttpExecutionContext;
 import play.libs.ws.WSResponse;
-
+import scala.util.parsing.json.JSONObject;
+import scala.util.parsing.json.JSONObject$;
 
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletionStage;
 
 /**
@@ -39,11 +42,15 @@ public class HomeController extends Controller {
     public CompletionStage<Result> queryOneHandler() {
         Form<pubClient1_1> publicationForm = formFactory.form(pubClient1_1.class).bindFromRequest();
         if (publicationForm.hasErrors()){
-            return (CompletionStage<Result>) badRequest(views.html.query1.render("publication form has errors"));  // send parameter like register so that user could know
+            String authorizeMessage = "Invalid publication Title";
+            List<List<String>> wrongMessage = new ArrayList<>();
+            wrongMessage.get(0).add(authorizeMessage);
+            return (CompletionStage<Result>) badRequest(views.html.query1.render(wrongMessage));  // send parameter like register so that user could know
         }
 
-        return publicationForm.get().checkAuthorized().thenApplyAsync((WSResponse r) -> {
-            if (r.getStatus() == 200 && r.asJson() != null && !r.getBody().equals("null")) {
+        return publicationForm.get().checkAuthorizedQ1().thenApplyAsync((WSResponse r) -> {
+            System.out.println("Body: "+ r.getBody());
+            if (r.getStatus() == 200 && r.asJson() != null && !r.getBody().equals("false")) {
                 JsonNode res = r.asJson();
 //                System.out.println(res);
 //                System.out.println(res.getNodeType());
@@ -52,14 +59,33 @@ public class HomeController extends Controller {
                 session("Title", publicationForm.get().getTitle());   // store Title in session for your project
                 // session("Id", publicationForm.get().getId());
                 // redirect to index page, to display all categories
-
+                List<List<String>> res1 = new ArrayList<>();
                 String query1 = "";
                 for (int i = 0; i < res.size(); i++) {
                     //JsonObject jsonObject = new JsonParser().parse(res.get(Integer.toString(i)).toString()).getAsJsonObject();
                     //System.out.println(res.get(i));
                     JsonNode row = res.get(i);
+                    List<String> curNode = new ArrayList<>();
                     //System.out.println(row.findValue("pid").asText());
-                    query1 += "The publication you are looking for: \n" +
+                    curNode.add(""+row.findValue("title"));
+                    curNode.add(""+row.findValue("mdate"));
+                    curNode.add(""+row.findValue("author_list"));
+                    curNode.add(""+row.findValue("article_key"));
+                    curNode.add(""+row.findValue("editors"));
+                    curNode.add(""+row.findValue("pages"));
+                    curNode.add(""+row.findValue("ee"));
+                    curNode.add(""+row.findValue("pub_url"));
+                    curNode.add(""+row.findValue("pub_year"));
+                    curNode.add(""+row.findValue("journal"));
+                    curNode.add(""+row.findValue("book_title"));
+                    curNode.add(""+row.findValue("volume"));
+                    curNode.add(""+row.findValue("pub_number"));
+                    curNode.add(""+row.findValue("publisher"));
+                    curNode.add(""+row.findValue("isbn"));
+                    curNode.add(""+row.findValue("series"));
+                    curNode.add(""+row.findValue("cross_ref"));
+
+                    String query = "The publication you are looking for: \n" +
 //                            "PID: " + row.findValue("pid") + "\n" +
                             "Title: " + row.findValue("title") + "\n" +
                             "Mdate: " + row.findValue("mdate") + "\n" +
@@ -79,26 +105,37 @@ public class HomeController extends Controller {
                             "ISBN: " + row.findValue("isbn") + "\n" +
                             "Series: " + row.findValue("series") + "\n" +
                             "Cross_ref: " + row.findValue("cross_ref") + "\n";
+                    res1.add(curNode);
                     System.out.println(query1);
                 }
-                return ok(views.html.query1.render(query1));
+                return ok(views.html.query1.render(res1));
 
 
             } else {
                 System.out.println("response null");
                 String authorizeMessage = "Invalid publication Title";
-                return badRequest(views.html.query1.render(authorizeMessage));
+                List<List<String>> wrongMessage = new ArrayList<>();
+                List<String> curWrong = new ArrayList<>();
+                curWrong.add(authorizeMessage);
+                wrongMessage.add(curWrong);
+
+                return badRequest(views.html.query1.render(wrongMessage));
             }
         }, ec.current());
     }
 
     public CompletionStage<Result> queryTwoHandler() {
-        Form<pubClient1_2> publicationForm = formFactory.form(pubClient1_2.class).bindFromRequest();
+        Form<pubClient1_1> publicationForm = formFactory.form(pubClient1_1.class).bindFromRequest();
         if (publicationForm.hasErrors()){
-            return (CompletionStage<Result>) badRequest(views.html.query2.render("publication form has errors"));
+            String authorizeMessage = "Form has errors";
+            List<List<String>> wrongMessage = new ArrayList<>();
+            List<String> curMess = new ArrayList<>();
+            curMess.add(authorizeMessage);
+            wrongMessage.add(curMess);
+            return (CompletionStage<Result>) badRequest(views.html.query2.render(wrongMessage));
         }
 
-        return publicationForm.get().checkAuthorized().thenApplyAsync((WSResponse r) -> {
+        return publicationForm.get().checkAuthorizedQ2().thenApplyAsync((WSResponse r) -> {
             if (r.getStatus() == 200 && r.asJson() != null && !r.getBody().equals("null")) {
                 JsonNode res = r.asJson();
 //                System.out.println(res);
@@ -113,11 +150,27 @@ public class HomeController extends Controller {
 
                 String query2 = "";
                 System.out.println("The metadata of journal you are looking for:");
+                List<List<String>> res2 = new ArrayList<>();
                 for (int i = 0; i < res.size(); i++) {
+                    List<String> curList = new ArrayList<>();
                     //JsonObject jsonObject = new JsonParser().parse(res.get(Integer.toString(i)).toString()).getAsJsonObject();
                     //System.out.println(res.get(i));
                     JsonNode row = res.get(i);
                     //System.out.println(row.findValue("pid").asText());
+                    curList.add(""+row.findValue("title"));
+                    curList.add(""+row.findValue("mdate"));
+                    curList.add(""+row.findValue("author_list"));
+                    curList.add(""+row.findValue("article_key"));
+                    curList.add(""+row.findValue("editors"));
+                    curList.add(""+row.findValue("pages"));
+                    curList.add(""+row.findValue("ee"));
+                    curList.add(""+row.findValue("pub_url"));
+                    curList.add(""+row.findValue("pub_year"));
+                    curList.add(""+row.findValue("journal"));
+                    curList.add(""+row.findValue("volume"));
+                    curList.add(""+row.findValue("pub_number"));
+                    curList.add(""+row.findValue("publisher"));
+
                     query2 += "Title: " + row.findValue("title") + "\n" +
                             "Mdate: " + row.findValue("mdate") + "\n" +
 //                            "Author: " + row.findValue("author") + "\n" +
@@ -132,27 +185,37 @@ public class HomeController extends Controller {
                             "Volume: " + row.findValue("volume") + "\n" +
                             "Pub_number: " + row.findValue("pub_number") + "\n" +
                             "Publisher: " + row.findValue("publisher") + "\n";
+                    res2.add(curList);
                     System.out.println(query2);
                 }
-                return ok(views.html.query2.render(query2));
+                return ok(views.html.query2.render(res2));
 
 
             } else {
                 System.out.println("response null");
-                String authorizeMessage = "Invalid Title , volume or number!";
-                return badRequest(views.html.query2.render(authorizeMessage));
+                String authorizeMessage = "Invalid input";
+                List<List<String>> wrongMessage = new ArrayList<>();
+                List<String> curWrong = new ArrayList<>();
+                curWrong.add(authorizeMessage);
+                wrongMessage.add(curWrong);
+                return badRequest(views.html.query2.render(wrongMessage));
             }
         }, ec.current());
     }
 
 
     public CompletionStage<Result> queryThreeHandler() {
-        Form<pubClient1_3> publicationForm = formFactory.form(pubClient1_3.class).bindFromRequest();
+        Form<pubClient1_1> publicationForm = formFactory.form(pubClient1_1.class).bindFromRequest();
         if (publicationForm.hasErrors()){
-            return (CompletionStage<Result>) badRequest(views.html.query3.render("Name or year form has errors"));  // send parameter like register so that user could know
+            String authorizeMessage = "Form has errors";
+            List<List<String>> wrongMessage = new ArrayList<>();
+            List<String> curMess = new ArrayList<>();
+            curMess.add(authorizeMessage);
+            wrongMessage.add(curMess);
+            return (CompletionStage<Result>) badRequest(views.html.query3.render(wrongMessage));
         }
 
-        return publicationForm.get().checkAuthorized().thenApplyAsync((WSResponse r) -> {
+        return publicationForm.get().checkAuthorizedQ3().thenApplyAsync((WSResponse r) -> {
             if (r.getStatus() == 200 && r.asJson() != null && !r.getBody().equals("null")) {
                 JsonNode res = r.asJson();
 //                System.out.println(res);
@@ -163,34 +226,44 @@ public class HomeController extends Controller {
                 session("pub_year", Integer.toString(publicationForm.get().getPub_year()));
                 // session("Id", publicationForm.get().getId());
                 // redirect to index page, to display all categories
+                List<List<String>> res3 = new ArrayList<>();
                 System.out.println("The publication you are looking for:");
                 String query3 = "";
                 for (int i = 0; i < res.size(); i++) {
                     //JsonObject jsonObject = new JsonParser().parse(res.get(Integer.toString(i)).toString()).getAsJsonObject();
                     //System.out.println(res.get(i));
                     JsonNode row = res.get(i);
+                    List<String> curList = new ArrayList<>();
                     //System.out.println(row.findValue("pid").asText());
+                    curList.add(""+row.findValue("title"));
                     query3 += "The publication you are looking for: \n" +
 //                            "PID: " + row.findValue("pid") + "\n" +
                             "Title: " + row.findValue("title") + "\n";
                     System.out.println(query3);
+                    res3.add(curList);
                 }
-                return ok(views.html.query3.render(query3));
+                return ok(views.html.query3.render(res3));
             } else {
                 System.out.println("response null");
-                String authorizeMessage = "Invalid researcher name and year!";
-                return badRequest(views.html.query3.render(authorizeMessage));
+                String authorizeMessage = "Invalid input";
+                List<List<String>> wrongMessage = new ArrayList<>();
+                List<String> curWrong = new ArrayList<>();
+                curWrong.add(authorizeMessage);
+                wrongMessage.add(curWrong);
+                return badRequest(views.html.query3.render(wrongMessage));
             }
         }, ec.current());
     }
 
     public CompletionStage<Result> queryFourHandler() {
-        Form<pubClient1_4> publicationForm = formFactory.form(pubClient1_4.class).bindFromRequest();
+        Form<pubClient1_1> publicationForm = formFactory.form(pubClient1_1.class).bindFromRequest();
         if (publicationForm.hasErrors()){
-            return (CompletionStage<Result>) badRequest(views.html.query4.render("Author form has errors"));  // send parameter like register so that user could know
+            List<String> wrongList = new ArrayList<>();
+            wrongList.add("Author form has errors");
+            return (CompletionStage<Result>) badRequest(views.html.query4.render(wrongList));  // send parameter like register so that user could know
         }
 
-        return publicationForm.get().checkAuthorized().thenApplyAsync((WSResponse r) -> {
+        return publicationForm.get().checkAuthorizedQ4().thenApplyAsync((WSResponse r) -> {
             if (r.getStatus() == 200 && r.asJson() != null && !r.getBody().equals("null")) {
                 JsonNode res = r.asJson();
 //                System.out.println(res);
@@ -203,22 +276,25 @@ public class HomeController extends Controller {
 
                 String query4 = "";
                 System.out.println("The author you are looking for: ");
+                List<String> resA = new ArrayList<String>();
                 for (int i = 0; i < res.size(); i++) {
                     //JsonObject jsonObject = new JsonParser().parse(res.get(Integer.toString(i)).toString()).getAsJsonObject();
                     //System.out.println(res.get(i));
                     JsonNode row = res.get(i);
                     //System.out.println(row.findValue("pid").asText());
                     query4 += "Author: " + row.findValue("author") + "\n";
-
+                    resA.add(""+row.findValue("author"));
                     System.out.println(query4);
                 }
-                return ok(views.html.query4.render(query4));
+                return ok(views.html.query4.render(resA));
 
 
             } else {
                 System.out.println("response null");
                 String authorizeMessage = "Invalid publication Title";
-                return badRequest(views.html.query4.render(authorizeMessage));
+                List<String> wrongError = new ArrayList<>();
+                wrongError.add(authorizeMessage);
+                return badRequest(views.html.query4.render(wrongError));
             }
         }, ec.current());
     }
@@ -245,16 +321,17 @@ public class HomeController extends Controller {
      * Query page
      */
     public Result query1() {
-        return ok(views.html.query1.render(""));
+        return ok(views.html.query1.render(new ArrayList<>()));
     }
     public Result query2() {
-        return ok(views.html.query2.render(""));
+        return ok(views.html.query2.render(new ArrayList<>()));
     }
     public Result query3() {
-        return ok(views.html.query3.render(""));
+        return ok(views.html.query3.render(new ArrayList<>()));
     }
     public Result query4() {
-        return ok(views.html.query4.render(""));
+
+        return ok(views.html.query4.render(new ArrayList<>()));
     }
     public Result query5() {
         return ok(views.html.query5.render(""));

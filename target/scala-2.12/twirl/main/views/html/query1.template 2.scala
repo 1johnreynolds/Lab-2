@@ -14,6 +14,7 @@ import views.html._
 import play.api.templates.PlayMagic._
 import java.lang._
 import java.util._
+
 import scala.collection.JavaConverters._
 import play.core.j.PlayMagicForJava._
 import play.mvc._
@@ -21,6 +22,8 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
+
+import scala.util.parsing.json.JSONObject
 
 object query1 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -94,7 +97,7 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
     }
   }
 
-  def render(authorizeMessage:String): play.twirl.api.HtmlFormat.Appendable = apply(authorizeMessage)
+  def render(q1Metadata:List[List[String]]): play.twirl.api.HtmlFormat.Appendable = apply(q1Metadata)
 
   def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (authorizeMessage) => apply(authorizeMessage)
 

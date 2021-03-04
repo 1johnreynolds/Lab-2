@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object query3 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object query3 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[List[String]],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(authorizeMessage: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(q3Metadata:List[List[String]]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -79,20 +79,26 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                             </div>
                         </div>
 
-                        """),_display_(/*51.26*/if(authorizeMessage!= null)/*51.53*/{_display_(Seq[Any](format.raw/*51.54*/("""
-                            """),format.raw/*52.29*/("""<div class="alert alert-primary" role="alert">
-                            """),_display_(/*53.30*/authorizeMessage),format.raw/*53.46*/("""
-                            """),format.raw/*54.29*/("""</div>
-                            <br>
-                        """)))}),format.raw/*56.26*/("""
-
-                        """),format.raw/*58.25*/("""<div class="row">
+                        <div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
 
                     </form>
                 </div>
             </div>
+
+            <table border="1">
+                <tr>
+                    <th>Title</th>
+                </tr>
+                """),_display_(/*63.18*/for(paperMetadata <- q3Metadata) yield /*63.50*/{_display_(Seq[Any](format.raw/*63.51*/("""
+                """),format.raw/*64.17*/("""<tr>
+                    """),_display_(/*65.22*/for(curpaper <- paperMetadata) yield /*65.52*/{_display_(Seq[Any](format.raw/*65.53*/("""
+                    """),format.raw/*66.21*/("""<td>"""),_display_(/*66.26*/curpaper),format.raw/*66.34*/("""</td>
+                    """)))}),format.raw/*67.22*/("""
+                """),format.raw/*68.17*/("""</tr>
+                """)))}),format.raw/*69.18*/("""
+            """),format.raw/*70.13*/("""</table>
         </div>
     </body>
 </html>"""))
@@ -100,9 +106,9 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
     }
   }
 
-  def render(authorizeMessage:String): play.twirl.api.HtmlFormat.Appendable = apply(authorizeMessage)
+  def render(q3Metadata:List[List[String]]): play.twirl.api.HtmlFormat.Appendable = apply(q3Metadata)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (authorizeMessage) => apply(authorizeMessage)
+  def f:((List[List[String]]) => play.twirl.api.HtmlFormat.Appendable) = (q3Metadata) => apply(q3Metadata)
 
   def ref: this.type = this
 
@@ -111,11 +117,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-03T05:15:23.573
-                  SOURCE: /Users/huasucaster/Desktop/CS Master/CS7340/Lab2/Lab-2-frontend/app/views/query3.scala.html
-                  HASH: d73b974404d579ca8774519b4c9087cd97e86cad
-                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3002->1849|3937->2757|3973->2784|4012->2785|4069->2814|4172->2890|4209->2906|4266->2935|4362->3000|4416->3026
-                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|82->51|82->51|82->51|83->52|84->53|84->53|85->54|87->56|89->58
+                  DATE: 2021-03-03T22:51:19.823
+                  SOURCE: /Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/frontend/Lab-2-frontend/app/views/query3.scala.html
+                  HASH: 35b340187e40055f274b96dc75b99bbca3feaab6
+                  MATRIX: 961->1|1086->33|2515->1437|2530->1443|2590->1482|2948->1813|2963->1819|3019->1854|4318->3126|4366->3158|4405->3159|4450->3176|4503->3202|4549->3232|4588->3233|4637->3254|4669->3259|4698->3267|4756->3294|4801->3311|4855->3334|4896->3347
+                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|94->63|94->63|94->63|95->64|96->65|96->65|96->65|97->66|97->66|97->66|98->67|99->68|100->69|101->70
                   -- GENERATED --
               */
           

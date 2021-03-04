@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object query2 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object query2 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[List[String]],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(authorizeMessage: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(q2Metadata:List[List[String]]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -82,20 +82,37 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                             </div>
                         </div>
 
-                        """),_display_(/*54.26*/if(authorizeMessage!= null)/*54.53*/{_display_(Seq[Any](format.raw/*54.54*/("""
-                            """),format.raw/*55.29*/("""<div class="alert alert-primary" role="alert">
-                            """),_display_(/*56.30*/authorizeMessage),format.raw/*56.46*/("""
-                            """),format.raw/*57.29*/("""</div>
-                            <br>
-                        """)))}),format.raw/*59.26*/("""
-
-                        """),format.raw/*61.25*/("""<div class="row">
+                        <div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
 
                     </form>
                 </div>
             </div>
+            <table border="1">
+                <tr>
+                    <th>Title</th>
+                    <th>Mdate</th>
+                    <th>Author List</th>
+                    <th>Article Key</th>
+                    <th>Editors</th>
+                    <th>Pages</th>
+                    <th>EE</th>
+                    <th>Pub_url</th>
+                    <th>Pub_year</th>
+                    <th>Journal</th>
+                    <th>Volume</th>
+                    <th>Pub_number</th>
+                    <th>Publisher</th>
+                </tr>
+                """),_display_(/*77.18*/for(paperMetadata <- q2Metadata) yield /*77.50*/{_display_(Seq[Any](format.raw/*77.51*/("""
+                """),format.raw/*78.17*/("""<tr>
+                    """),_display_(/*79.22*/for(curpaper <- paperMetadata) yield /*79.52*/{_display_(Seq[Any](format.raw/*79.53*/("""
+                    """),format.raw/*80.21*/("""<td>"""),_display_(/*80.26*/curpaper),format.raw/*80.34*/("""</td>
+                    """)))}),format.raw/*81.22*/("""
+                """),format.raw/*82.17*/("""</tr>
+                """)))}),format.raw/*83.18*/("""
+            """),format.raw/*84.13*/("""</table>
         </div>
     </body>
 </html>"""))
@@ -103,9 +120,9 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
     }
   }
 
-  def render(authorizeMessage:String): play.twirl.api.HtmlFormat.Appendable = apply(authorizeMessage)
+  def render(q2Metadata:List[List[String]]): play.twirl.api.HtmlFormat.Appendable = apply(q2Metadata)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (authorizeMessage) => apply(authorizeMessage)
+  def f:((List[List[String]]) => play.twirl.api.HtmlFormat.Appendable) = (q2Metadata) => apply(q2Metadata)
 
   def ref: this.type = this
 
@@ -114,11 +131,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-03T13:48:30.319
-                  SOURCE: /Users/huasucaster/Desktop/CS Master/CS7340/Lab2/Lab-2-frontend/app/views/query2.scala.html
-                  HASH: d9b67d7f962cf404ea842f310e3e286cf116d30d
-                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3000->1847|4263->3083|4299->3110|4338->3111|4395->3140|4498->3216|4535->3232|4592->3261|4688->3326|4742->3352
-                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|85->54|85->54|85->54|86->55|87->56|87->56|88->57|90->59|92->61
+                  DATE: 2021-03-03T22:30:10.769
+                  SOURCE: /Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/frontend/Lab-2-frontend/app/views/query2.scala.html
+                  HASH: 6de74880fa3d9e58d143c27994523e183be74207
+                  MATRIX: 961->1|1086->33|2515->1437|2530->1443|2590->1482|2948->1813|2963->1819|3017->1852|5091->3899|5139->3931|5178->3932|5223->3949|5276->3975|5322->4005|5361->4006|5410->4027|5442->4032|5471->4040|5529->4067|5574->4084|5628->4107|5669->4120
+                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|108->77|108->77|108->77|109->78|110->79|110->79|110->79|111->80|111->80|111->80|112->81|113->82|114->83|115->84
                   -- GENERATED --
               */
           
