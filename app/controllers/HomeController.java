@@ -298,6 +298,35 @@ public class HomeController extends Controller {
             }
         }, ec.current());
     }
+
+    public Result partTwoQueryThree(){
+
+        List<Conference> confList = new ArrayList<Conference>();
+        Conference c1 = new Conference();
+        c1.cid = (long)1;
+        c1.name = "Las Vegas, NV";
+        c1.x = 36.19397168486255;
+        c1.y = -115.27116595060265;
+
+        Conference c2 = new Conference();
+        c2.cid = (long)2;
+        c2.name = "Beijing, China";
+        c2.x = 39.927636132257135;
+        c2.y = 116.37868748689436;
+
+        Conference c3 = new Conference();
+        c3.cid = (long)3;
+        c3.name = "Bangalore, India";
+        c3.x = 12.985936550811074;
+        c3.y = 77.5755354644407;
+
+        confList.add(c1);
+        confList.add(c2);
+        confList.add(c3);
+        return ok(views.html.response.render(confList));
+    }
+
+
     /**
      * handle querySelection
      */

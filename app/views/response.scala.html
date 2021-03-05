@@ -1,38 +1,60 @@
-@(message: String)
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--    <head>-->
-<!--        <meta charset="utf-8">-->
-<!--        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+@(confereces:List[controllers.Conference])
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <style>
+      #mapid {
+      height: 700px;
+      }
 
-<!--        <title>Play Setup Demo</title>-->
-<!--        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-<!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+    </style>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin="">
 
-<!--            &lt;!&ndash; Compiled and minified JavaScript &ndash;&gt;-->
-<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
-<!--        <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />-->
-<!--        <link rel="stylesheet" href="https://unpkg.com/leaflet@@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>-->
-<!--        <script src="https://unpkg.com/leaflet@@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>-->
-<!--    </head>-->
-<!--    <body>-->
+    </script>
 
-<!--        <header class="topbar">-->
-<!--            <h1 class="focused" style="font-size: 37px;-->
-<!--                color: #57a957">-->
-<!--                <strong>Response</strong>-->
-<!--            </h1>-->
-<!--        <form action="@routes.HomeController.querySelectionHandler()">-->
-<!--            <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Return to Query Selection</button>-->
-<!--        </form>-->
-<!--        </header>-->
+    <title>OpenLayers example</title>
+</head>
+<body>
+<h2>My Map</h2>
+<div id="mapid"></div>
+<script type="text/javascript">
 
-<!--        <div class="row">-->
-<!--            <div class="card col s4 offset-s4 ">-->
-<!--                <div class="card-panel">-->
-<!--                    <form> @message </form>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </body>-->
-<!--</html>-->
+    var mymap = L.map('mapid').setView([51.505, -0.09], 5);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmVpY2hlbmgiLCJhIjoiY2tsdjl3dTY5MHE2bDMwczU3emY1OW5vMyJ9.VVfIHxS7zO04N1trHAnEmw', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 10,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'your.mapbox.access.token'
+    }).addTo(mymap);
+
+    @for(conferenceList <- confereces){
+        L.marker([@conferenceList.x, @conferenceList.y]).addTo(mymap).bindPopup("<b>@conferenceList.name</b>").openPopup();
+    }
+
+<!--    var popup = L.popup()-->
+<!--    .setLatLng([51.7, -0.09])-->
+<!--    .setContent("I am a standalone popup.")-->
+<!--    .openOn(mymap);-->
+
+    var popup = L.popup();
+
+    function onMapClick(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("You clicked the map at " + e.latlng.toString())
+            .openOn(mymap);
+    }
+
+    mymap.on('click', onMapClick);
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/frontend/Lab-2-frontend/conf/routes
-// @DATE:Wed Mar 03 16:12:02 CST 2021
+// @DATE:Fri Mar 05 16:15:59 CST 2021
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -113,6 +113,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:29
+    def partTwoQueryThree: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.partTwoQueryThree",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "conferenceMap"})
+        }
+      """
+    )
+  
     // @LINE:25
     def queryThreeHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.queryThreeHandler",
@@ -125,7 +135,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:30
+  // @LINE:32
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -133,7 +143,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:30
+    // @LINE:32
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
