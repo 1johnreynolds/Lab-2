@@ -37,7 +37,7 @@
     }).addTo(mymap);
 
     @for(conferenceList <- confereces){
-        L.marker([@conferenceList.x, @conferenceList.y]).addTo(mymap).bindPopup("<b>@conferenceList.name</b>").openPopup();
+        L.marker([@conferenceList.getX(), @conferenceList.getY()]).addTo(mymap).bindPopup("<b>@conferenceList.getName()</b>").openPopup();
     }
 
 <!--    var popup = L.popup()-->

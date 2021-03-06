@@ -26,6 +26,8 @@ GET     /query3Response                  controllers.HomeController.queryThreeHa
 
 GET     /query4Response                  controllers.HomeController.queryFourHandler()
 
+GET     /query5Response                  controllers.HomeController.queryFiveHandler()
+
 GET     /conferenceMap              controllers.HomeController.partTwoQueryThree()
 
 # Map static resources from the /public folder to the /assets URL path

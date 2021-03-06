@@ -1,4 +1,4 @@
-@(authorizeMessage: String)
+@(conferences: List[Conference])
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,14 +31,14 @@
         <div class="row">
             <div class="card col s4 offset-s4 ">
                 <div class="card-panel">
-                    <form action="@routes.HomeController.queryOneHandler()" method="GET">
+                    <form action="@routes.HomeController.queryFiveHandler()" method="GET">
                         <h6> <b>Query 5:</b>
                             <br>Given a conference and a year, display the location where it was held.
                         </h6>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="conference" name="conference" type="text" class="validate">
-                                <label for="conference">Conference:</label>
+                                <input id="name" name="name" type="text" class="validate">
+                                <label for="name">Conference:</label>
                             </div>
                             <div class="input-field col s12">
                                 <input id="year" name="year" type="text" class="validate">
@@ -52,6 +52,29 @@
                     </form>
                 </div>
             </div>
+
+            <table border="1">
+                <tr>
+                    <th>Conference</th>
+                    <th>Year</th>
+                    <th>Location</th>
+                    <th>x-axis</th>
+                    <th>y-axis</th>
+                </tr>
+                @if(conferences!=null){
+                    @for(conference <- conferences){
+                    <tr>
+                        <td>@conference.getName()</td>
+                        <td>@conference.getYear()</td>
+                        <td>@conference.getLocation()</td>
+                        <td>@conference.getX()</td>
+                        <td>@conference.getY()</td>
+                    </tr>
+                    }
+                }
+
+            </table>
+
         </div>
     </body>
 </html>

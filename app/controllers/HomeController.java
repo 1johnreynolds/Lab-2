@@ -288,7 +288,6 @@ public class HomeController extends Controller {
                 }
                 return ok(views.html.query4.render(resA));
 
-
             } else {
                 System.out.println("response null");
                 String authorizeMessage = "Invalid publication Title";
@@ -299,26 +298,82 @@ public class HomeController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> queryFiveHandler() {
+        Form<Conference> publicationForm = formFactory.form(Conference.class).bindFromRequest();
+        if (publicationForm.hasErrors()){
+
+            return (CompletionStage<Result>) badRequest(views.html.query5.render(new ArrayList<Conference>()));
+            //return new CompletionStage<Result>();
+
+        }
+
+        return publicationForm.get().checkAuthorizedQ5().thenApplyAsync((WSResponse r) -> {
+            System.out.println(r.getStatus());
+            if (r.getStatus() == 200 && r.asJson() != null && !r.getBody().equals("null")) {
+                JsonNode res = r.asJson();
+//                System.out.println(res);
+//                System.out.println(res.getNodeType());
+//                System.out.println(res.size());
+                String query4 = "";
+                System.out.println("The conference you are looking for: ");
+                List<Conference> resQ5 = new ArrayList<Conference>();
+                System.out.println("size"+res.size());
+                for (int i = 0; i < res.size(); i++) {
+                    //JsonObject jsonObject = new JsonParser().parse(res.get(Integer.toString(i)).toString()).getAsJsonObject();
+                    //System.out.println(res.get(i));
+                    JsonNode row = res.get(i);
+                    System.out.println(row);
+
+
+                    System.out.println(row.findValue("name").asText());
+                    System.out.println(row.findValue("year").asInt());
+                    System.out.println(row.findValue("location").asText());
+                    System.out.println(row.findValue("x").asDouble());
+                    System.out.println(row.findValue("y").asDouble());
+
+
+                    Conference curConference = new Conference();
+
+                    curConference.setName(row.findValue("name").asText());
+                    curConference.setYear(row.findValue("year").asText());
+                    curConference.setLocation(row.findValue("location").asText());
+                    curConference.setX(row.findValue("x").asDouble());
+                    curConference.setY(row.findValue("y").asDouble());
+                    resQ5.add(curConference);
+                    System.out.println("curConf: "+curConference);
+                }
+                return ok(views.html.query5.render(resQ5));
+
+
+            } else {
+
+                return badRequest(views.html.query5.render(new ArrayList<Conference>()));
+            }
+        }, ec.current());
+    }
+
     public Result partTwoQueryThree(){
 
         List<Conference> confList = new ArrayList<Conference>();
         Conference c1 = new Conference();
-        c1.cid = (long)1;
-        c1.name = "Las Vegas, NV";
-        c1.x = 36.19397168486255;
-        c1.y = -115.27116595060265;
+        c1.setID((long)1);
+        c1.setName("Las Vegas, NV");
+        c1.setX(36.19397168486255);
+        c1.setY(-115.27116595060265);
 
         Conference c2 = new Conference();
-        c2.cid = (long)2;
-        c2.name = "Beijing, China";
-        c2.x = 39.927636132257135;
-        c2.y = 116.37868748689436;
+        c2.setID((long)2);
+        c2.setName("Beijing, China");
+        c2.setX(39.927636132257135);
+        c2.setY(116.37868748689436);
+
+
 
         Conference c3 = new Conference();
-        c3.cid = (long)3;
-        c3.name = "Bangalore, India";
-        c3.x = 12.985936550811074;
-        c3.y = 77.5755354644407;
+        c3.setID((long)3);
+        c3.setName("Bangalore, Indi");
+        c3.setX(12.985936550811074);
+        c3.setY(77.5755354644407);
 
         confList.add(c1);
         confList.add(c2);
@@ -358,13 +413,8 @@ public class HomeController extends Controller {
     public Result query3() {
         return ok(views.html.query3.render(new ArrayList<>()));
     }
-    public Result query4() {
-
-        return ok(views.html.query4.render(new ArrayList<>()));
-    }
+    public Result query4() { return ok(views.html.query4.render(new ArrayList<>())); }
     public Result query5() {
-        return ok(views.html.query5.render(""));
+        return ok(views.html.query5.render(new ArrayList<>()));
     }
-
-
 }

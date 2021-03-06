@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/frontend/Lab-2-frontend/conf/routes
-// @DATE:Fri Mar 05 16:15:59 CST 2021
+// @DATE:Fri Mar 05 20:40:28 CST 2021
 
 package controllers;
 

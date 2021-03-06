@@ -90,7 +90,9 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
     }
   }
 
-  def render(authorizeMessage:String): play.twirl.api.HtmlFormat.Appendable = apply(authorizeMessage)
+  def render(conferences:List[Conference]): play.twirl.api.HtmlFormat.Appendable = apply(conferences)
+
+  def renderWrong(authorizeMessage:String): play.twirl.api.HtmlFormat.Appendable = apply(authorizeMessage)
 
   def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (authorizeMessage) => apply(authorizeMessage)
 

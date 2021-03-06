@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object query5 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object query5 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[Conference],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(authorizeMessage: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(conferences: List[Conference]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -62,14 +62,14 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
         <div class="row">
             <div class="card col s4 offset-s4 ">
                 <div class="card-panel">
-                    <form action=""""),_display_(/*34.36*/routes/*34.42*/.HomeController.queryOneHandler()),format.raw/*34.75*/("""" method="GET">
+                    <form action=""""),_display_(/*34.36*/routes/*34.42*/.HomeController.queryFiveHandler()),format.raw/*34.76*/("""" method="GET">
                         <h6> <b>Query 5:</b>
                             <br>Given a conference and a year, display the location where it was held.
                         </h6>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="conference" name="conference" type="text" class="validate">
-                                <label for="conference">Conference:</label>
+                                <input id="name" name="name" type="text" class="validate">
+                                <label for="name">Conference:</label>
                             </div>
                             <div class="input-field col s12">
                                 <input id="year" name="year" type="text" class="validate">
@@ -83,6 +83,29 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                     </form>
                 </div>
             </div>
+
+            <table border="1">
+                <tr>
+                    <th>Conference</th>
+                    <th>Year</th>
+                    <th>Location</th>
+                    <th>x-axis</th>
+                    <th>y-axis</th>
+                </tr>
+                """),_display_(/*64.18*/if(conferences!=null)/*64.39*/{_display_(Seq[Any](format.raw/*64.40*/("""
+                    """),_display_(/*65.22*/for(conference <- conferences) yield /*65.52*/{_display_(Seq[Any](format.raw/*65.53*/("""
+                    """),format.raw/*66.21*/("""<tr>
+                        <td>"""),_display_(/*67.30*/conference/*67.40*/.getName()),format.raw/*67.50*/("""</td>
+                        <td>"""),_display_(/*68.30*/conference/*68.40*/.getYear()),format.raw/*68.50*/("""</td>
+                        <td>"""),_display_(/*69.30*/conference/*69.40*/.getLocation()),format.raw/*69.54*/("""</td>
+                        <td>"""),_display_(/*70.30*/conference/*70.40*/.getX()),format.raw/*70.47*/("""</td>
+                        <td>"""),_display_(/*71.30*/conference/*71.40*/.getY()),format.raw/*71.47*/("""</td>
+                    </tr>
+                    """)))}),format.raw/*73.22*/("""
+                """)))}),format.raw/*74.18*/("""
+
+            """),format.raw/*76.13*/("""</table>
+
         </div>
     </body>
 </html>"""))
@@ -90,9 +113,9 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
     }
   }
 
-  def render(authorizeMessage:String): play.twirl.api.HtmlFormat.Appendable = apply(authorizeMessage)
+  def render(conferences:List[Conference]): play.twirl.api.HtmlFormat.Appendable = apply(conferences)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (authorizeMessage) => apply(authorizeMessage)
+  def f:((List[Conference]) => play.twirl.api.HtmlFormat.Appendable) = (conferences) => apply(conferences)
 
   def ref: this.type = this
 
@@ -101,11 +124,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-03T16:12:02.862
+                  DATE: 2021-03-06T10:53:44.769
                   SOURCE: /Users/beichenhu/Desktop/Service-Oriented Computing /Lab2/frontend/Lab-2-frontend/app/views/query5.scala.html
-                  HASH: 2253495993243fd0a89d80c21bf22451563bef6e
-                  MATRIX: 949->1|1069->28|2498->1432|2513->1438|2573->1477|2931->1808|2946->1814|3000->1847
-                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34
+                  HASH: 358c06315c87f16c38c8c8b611156dc2feed29de
+                  MATRIX: 959->1|1084->33|2513->1437|2528->1443|2588->1482|2946->1813|2961->1819|3016->1853|4358->3168|4388->3189|4427->3190|4476->3212|4522->3242|4561->3243|4610->3264|4671->3298|4690->3308|4721->3318|4783->3353|4802->3363|4833->3373|4895->3408|4914->3418|4949->3432|5011->3467|5030->3477|5058->3484|5120->3519|5139->3529|5167->3536|5251->3589|5300->3607|5342->3621
+                  LINES: 28->1|33->2|57->26|57->26|57->26|65->34|65->34|65->34|95->64|95->64|95->64|96->65|96->65|96->65|97->66|98->67|98->67|98->67|99->68|99->68|99->68|100->69|100->69|100->69|101->70|101->70|101->70|102->71|102->71|102->71|104->73|105->74|107->76
                   -- GENERATED --
               */
           
